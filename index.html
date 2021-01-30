@@ -222,27 +222,30 @@
                 return [firstClassQuantity, economyQuantity, subCost, tax, totalCost];
             }
 
-
+            //first class ticket plus button
             document.getElementById('firstClassIncrease').addEventListener('click', function () {
                 countTicket('Increase', 'firstClassQuantity');
             })
 
+            // first class class ticket minus button
             document.getElementById('firstClassDecrease').addEventListener('click', function () {
                 countTicket('Decrease', 'firstClassQuantity');
 
             })
 
+            // economy class ticket plus button
             document.getElementById('economyIncrease').addEventListener('click', function () {
                 countTicket('Increase', 'economyQuantity');
             })
 
+            // economy class ticket minus button
             document.getElementById('economyDecrease').addEventListener('click', function () {
                 countTicket('Decrease', 'economyQuantity');
 
             })
 
 
-
+            // buy now button
             document.getElementById('book').addEventListener('click', function () {
 
                 let ticketAndCosts = countCost();

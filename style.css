@@ -135,10 +135,12 @@ button .font-size{
     box-sizing: border-box;
 }
 
+/* successful text size */
 .successful{
     font-size: 50px;
 }
 
+/* pre tag */
 pre{
     display:inline;
 }
