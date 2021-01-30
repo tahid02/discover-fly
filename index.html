@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Stylesheet -->
+    <!-- bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+
+    <!-- css link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--Header and Menu Section-->
+    <header class="container">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a class="active" href="#">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Booking Section-->
+    <main class="main-content container">
+        <div class="booking-form">
+            <h3>Booking Flights</h3>
+            <div class="input-group">
+                <label for="">Flying From</label>
+                <input class="inp-style" type="text" name="" placeholder="Dhaka, Bangladesh">
+            </div>
+            <div class="input-group">
+                <label for="">Flying To</label>
+                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+            </div>
+            <div class="inputs">
+                <div class="input-group">
+                    <label" for="">Departure</label>
+                        <input class="inp-style" type="date" name="">
+                </div>
+                <div class="input-group">
+                    <label for="">Return</label>
+                    <input class="inp-style" type="date" name="">
+                </div>
+            </div>
+            <div class="input-group f-class d-flex">
+                <div>
+                    <label for="">First Class ($150)</label>
+                    <input id="firstClassQuantity" class="inp-style inp-width" type="number" name="" value="1">
+                </div>
+                <div class="plus-minus-btn d-flex">
+                    <!-- <p>+ -</p> -->
+                    <button id="firstClassIncrease" class="btn btn-success me-1 "> + </button>
+                    <button id="firstClassDecrease" class="btn btn-success ">-</button>
+
+
+
+                </div>
+            </div>
+
+            <div class="input-group f-class">
+                <div>
+                    <label for="">Economy ($100)</label>
+                    <input id="economyQuantity" class="inp-style inp-width" type="number" name="" id="" value="0">
+                </div>
+                <div class="plus-minus-btn d-flex ">
+                    <!-- <p> <span>+</span> <span>-</span> </p> -->
+                    <button id="economyIncrease" class="btn btn-success me-1 "> + </button>
+                    <button id="economyDecrease" class="btn btn-success  ">-</button>
+
+                </div>
+            </div>
+            <div class="calculations">
+                <div class="amount">
+                    <div class="left">
+                        <p>Subtotal</p>
+                    </div>
+                    <div class="right">
+                        <p>$ <span id="sub-cost">150</span> </p>
+                    </div>
+                </div>
+
+                <div class="amount">
+                    <div class="left">
+                        <p>Charge 10% VAT</p>
+                    </div>
+                    <div class="right">
+                        <p>$ <span id="tax">15</span></p>
+                    </div>
+                </div>
+                <hr>
+                <div class="amount">
+                    <div class="left">
+                        <h4>Total</h4>
+                    </div>
+                    <div class="right">
+                        <p>$ <span id="total-cost">165</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <button class="btn-style">Book Now</button> -->
+            <!-- modal part -->
+
+
+            <!-- Button trigger modal -->
+            <div id="wrapper">
+                <button type="button" id="book" class="btn btn-primary btn-style" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    <h1 id="book-now">Book Now</h1>
+                </button>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade mainModal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header ">
+
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <!-- modal body -->
+                        <div class="modal-body">
+                            <!-- show successful or error -->
+                            <h3 id="head-text" class="text-center"> </h3>
+                            <h1 id="confirmation" class="text-center  successful"></h1>
+                            <h4 id="error-text"></h4>
+
+                            <!-- show ticket number and cost -->
+                            <p id="success-text">
+                            <h4><span class="first-class "></span></h4>
+                            <h4><span class="economy-class "></span></h4>
+                            <h4><span class="sub-total "></span></h4>
+                            <h4><span class="vat  "> </span></h4>
+                            <h4><span class="total-cost "> </span></h4>
+                            </p>
+                            <h5 id="suggestion" class="text-center  mt-5 "></h5>
+                        </div>
+
+                        <div class="modal-footer d-flex justify-content-center">
+                            <button type="button" class="btn btn-outline-success w-25 fs-5"
+                                data-bs-dismiss="modal">OK</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="booking-content">
+            <h1>discover <br> around the world</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias
+                veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
+                voluptatibus quam</p>
+        </div>
+        </section>
+
+
+
+
+        <script>
+
+
+            // count number of ticket bought
+            function countTicket(quantityButton, ticketClasses) {
+
+                const ticketQuantity = document.getElementById(ticketClasses);
+                const ticketQuantityNumber = parseInt(ticketQuantity.value);
+                let newQuantity = ticketQuantityNumber;
+
+                // check if increment button was clicked
+                if (quantityButton == 'Increase') {
+                    newQuantity = ticketQuantityNumber + 1;
+                }
+
+                // check if decrement button was clicked
+                if (quantityButton == 'Decrease' && ticketQuantityNumber > 0) {
+                    newQuantity = ticketQuantityNumber - 1;
+                }
+
+                ticketQuantity.value = newQuantity;
+                countCost();
+            }
+
+
+            // count subTotal ,  10% VAT cost and Total cost
+            function countCost() {
+
+                let firstClassQuantity = document.getElementById('firstClassQuantity').value;
+                let economyQuantity = document.getElementById('economyQuantity').value;
+
+                // counting sub Total cost
+                let subCost = (firstClassQuantity * 150) + (economyQuantity * 100);
+                document.getElementById('sub-cost').innerText = subCost;
+
+                //counting tax
+                let tax = subCost * 0.1;
+                document.getElementById('tax').innerText = tax;
+
+                // counting total cost
+                let totalCost = subCost + tax;
+                document.getElementById('total-cost').innerText = totalCost;
+
+                return [firstClassQuantity, economyQuantity, subCost, tax, totalCost];
+            }
+
+
+            document.getElementById('firstClassIncrease').addEventListener('click', function () {
+                countTicket('Increase', 'firstClassQuantity');
+            })
+
+            document.getElementById('firstClassDecrease').addEventListener('click', function () {
+                countTicket('Decrease', 'firstClassQuantity');
+
+            })
+
+            document.getElementById('economyIncrease').addEventListener('click', function () {
+                countTicket('Increase', 'economyQuantity');
+            })
+
+            document.getElementById('economyDecrease').addEventListener('click', function () {
+                countTicket('Decrease', 'economyQuantity');
+
+            })
+
+
+
+            document.getElementById('book').addEventListener('click', function () {
+
+                let ticketAndCosts = countCost();
+
+                // text and icon in modal head
+                let confirmationText = document.getElementById('confirmation');
+                let headText = document.getElementById('head-text');
+
+
+                // showing firstClass Quantity, economy Quantity, sub Cost, tax and totalCost in modal
+                let showFirstClass = document.getElementsByClassName('first-class')[0];
+                let showEconomyClass = document.getElementsByClassName('economy-class')[0];
+                let showSubTotal = document.getElementsByClassName('sub-total')[0];
+                let showTax = document.getElementsByClassName('vat')[0];
+                let showTotalCost = document.getElementsByClassName('total-cost')[0];
+
+                // suggestion for both ,successful or error  booking in modal
+                let suggestion = document.getElementById('suggestion');
+
+                if (ticketAndCosts[0] == 0 && ticketAndCosts[1] == 0) {
+
+                    headText.innerText = '';
+                    confirmationText.innerHTML = 'Error!';
+                    confirmationText.style.color = 'red';
+
+                    showFirstClass.innerHTML = '';
+                    showEconomyClass.innerHTML = '';
+                    showSubTotal.innerHTML = '';
+                    showTax.innerHTML = '';
+                    showTotalCost.innerHTML = '';
+                    suggestion.innerText = 'please book at least one ticket';
+
+                } else {
+
+                    headText.innerText = 'Congrats! booking';
+                    confirmationText.innerHTML = 'successful';
+                    confirmationText.style.color = 'green';
+
+                    showFirstClass.innerHTML = '<pre>First class ticket number   : </pre>' + ticketAndCosts[0];
+                    showEconomyClass.innerHTML = '<pre>Economy class ticket number : </pre>' + ticketAndCosts[1];
+                    showSubTotal.innerHTML = '<pre>Sub total cost              : $</pre>' + ticketAndCosts[2];
+                    showTax.innerHTML = '<pre>Tax                         : $</pre> ' + ticketAndCosts[3];
+                    showTotalCost.innerHTML = '<pre>Total cost                  : $</pre>' + ticketAndCosts[4];
+
+                    suggestion.innerText = 'check your email for more details';
+
+                }
+            });
+
+        </script>
+        <!--Thank You-->
+</body>
+
+</html>
